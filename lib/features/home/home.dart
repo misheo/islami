@@ -18,7 +18,33 @@ class HomeScreen extends StatelessWidget {
           title: Text(AppLocalizations.of(context)!.app_title ),
         ),
         body: Center(
-          child: Text('HomeScreen'),
+          child: Text('Home Screen'),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items:  [
+            BottomNavigationBarItem(
+              icon: const ImageIcon(AssetImage('assets/icons/quran_icon.png')),
+              label: AppLocalizations.of(context)!.quran,
+            ),
+            BottomNavigationBarItem(
+              icon: const ImageIcon(AssetImage('assets/icons/hdith_icon.png')),
+              label: AppLocalizations.of(context)!.ahdith,
+            ),
+            BottomNavigationBarItem(
+              icon: const ImageIcon(AssetImage('assets/icons/sebha_icon.png')),
+              label: AppLocalizations.of(context)!.tsbih,
+            ),
+            BottomNavigationBarItem(
+              icon: const ImageIcon(AssetImage('assets/icons/radio_icon.png')),
+              label: AppLocalizations.of(context)!.radio,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.settings),
+              label: AppLocalizations.of(context)!.settings,
+            ),
+      
+
+          ],
         ),
       ),
     );

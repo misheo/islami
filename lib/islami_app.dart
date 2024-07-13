@@ -17,6 +17,7 @@ class IslamiApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: MyTheme.lightTheme,
         title: 'Material App',
         localizationsDelegates: AppLocalizations.localizationsDelegates,

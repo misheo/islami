@@ -4,6 +4,7 @@ import 'package:islami/core/theme/my_colors.dart';
 class MyTheme {
 
   static ThemeData lightTheme = ThemeData(
+    canvasColor: MyColors.primaryLightColor,
     brightness: Brightness.light,
     primaryColor: MyColors.primaryLightColor,
     scaffoldBackgroundColor: Colors.transparent,
@@ -20,14 +21,13 @@ class MyTheme {
     iconTheme: const IconThemeData(
       color: MyColors.primaryLightColor
     ),
-    navigationBarTheme: NavigationBarThemeData(
+
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: MyColors.primaryLightColor,
-      indicatorColor: MyColors.primaryLightColor,
-      labelTextStyle: WidgetStateProperty.all(
-        const TextStyle(
-          color: MyColors.primaryLightColor
-        )
-      ) , 
+      selectedItemColor: MyColors.blackLightColor,
+      unselectedItemColor: Colors.white,
+      elevation: 20 , 
+
     )
   );
   
