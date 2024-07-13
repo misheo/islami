@@ -5,6 +5,7 @@ import '../../core/theme/widgets/default_background.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../quran/quran_screen.dart';
+import '../radio/radio_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -23,13 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget setContent() {
     switch (index) {
       case 0:
-        return QuranScreen();
+        return const QuranScreen();
       case 1:
         return Container();
       case 2:
         return Container();
       case 3:
-        return Container();
+        return const RadioScreen();
       default:
         return Container();
     }
