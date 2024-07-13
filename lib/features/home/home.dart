@@ -4,24 +4,51 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import '../../core/theme/widgets/default_background.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-class HomeScreen extends StatelessWidget {
+import '../quran/quran_screen.dart';
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
+  void onTap(int index) {
+    setState(() {
+      this.index = index;
+    });
+  }
+
+  Widget setContent() {
+    switch (index) {
+      case 0:
+        return QuranScreen();
+      case 1:
+        return Container();
+      case 2:
+        return Container();
+      case 3:
+        return Container();
+      default:
+        return Container();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-     FlutterNativeSplash.remove();
+    FlutterNativeSplash.remove();
+    
 
     return DefaultBackground(
       child: Scaffold(
         // backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.app_title ),
-        ),
-        body: Center(
-          child: Text('Home Screen'),
-        ),
+
+        body: setContent(),
         bottomNavigationBar: BottomNavigationBar(
-          items:  [
+          currentIndex: index,
+          onTap: onTap,
+          items: [
             BottomNavigationBarItem(
               icon: const ImageIcon(AssetImage('assets/icons/quran_icon.png')),
               label: AppLocalizations.of(context)!.quran,
@@ -42,8 +69,6 @@ class HomeScreen extends StatelessWidget {
               icon: const Icon(Icons.settings),
               label: AppLocalizations.of(context)!.settings,
             ),
-      
-
           ],
         ),
       ),

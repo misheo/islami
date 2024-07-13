@@ -6,5 +6,6 @@
     "radio" : "Radio" ,
     "tsbih" : "Tasbih" , 
     "settings" : "Settings" , 
-    "ahdith" : "Ahdith" 
+    "ahdith" : "Ahdith"  , 
+    "sura_name" : "Sura Name"
 }
