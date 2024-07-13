@@ -7,5 +7,6 @@
     "tsbih" : "Tasbih" , 
     "settings" : "Settings" , 
     "ahdith" : "Ahdith"  , 
-    "sura_name" : "Sura Name"
+    "sura_name" : "Sura Name" , 
+    "count_of_tasbih" : "Count of Tasbih"
 }
