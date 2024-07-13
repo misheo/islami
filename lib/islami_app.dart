@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islami/core/theme/my_theme.dart';
+import 'package:islami/features/home/home.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class IslamiApp extends StatelessWidget {
   const IslamiApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en'), // English
-        Locale('ar'), // Spanish
-      ],
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
+    //  FlutterNativeSplash.remove();
+
+    return ScreenUtilInit(
+      designSize: const Size(412, 870),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        theme: MyTheme.lightTheme,
+        title: 'Material App',
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        routes: {
+          '/': (context) => const HomeScreen(),
+        },
       ),
     );
   }
