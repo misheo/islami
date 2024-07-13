@@ -4,9 +4,11 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import '../../core/theme/widgets/default_background.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../ahdith/ahdith_screen.dart';
 import '../quran/quran_screen.dart';
 import '../radio/radio_screen.dart';
 import '../sebha/sebha_screen.dart';
+import '../setting/setting_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -27,15 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         return const QuranScreen();
       case 1:
-        return Container();
+        return const AhdithScreen();
       case 2:
-        return SebhaScreen();
+        return const SebhaScreen();
       case 3:
         return const RadioScreen();
       case 4:
-        return const RadioScreen();
+        return const SettingScreen();
       default:
-        return Container();
+        return const SettingScreen();
     }
   }
 
