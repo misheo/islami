@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../core/theme/my_colors.dart';
-import '../../core/theme/widgets/my_divider.dart';
+import '../../core/widgets/my_divider.dart';
 
 class AhdithScreen extends StatelessWidget {
   const AhdithScreen({super.key});

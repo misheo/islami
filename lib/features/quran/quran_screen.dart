@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami/core/theme/widgets/default_background.dart';
+import 'package:islami/core/widgets/default_background.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/core/theme/widgets/my_divider.dart';
+import 'package:islami/core/widgets/my_divider.dart';
 import 'package:islami/features/quran/widgets/sura_details.dart';
 
 import '../../core/theme/my_colors.dart';

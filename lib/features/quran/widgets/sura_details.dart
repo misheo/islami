@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islami/core/theme/widgets/default_background.dart';
+import 'package:islami/core/widgets/default_background.dart';
 
-import '../../../core/theme/my_colors.dart';
 import '../data/soura_details_args.dart';
 
-class SouraDetails extends StatelessWidget {
+class SouraDetails extends StatefulWidget {
   static const String routeName = "soura_details";
-  SouraDetails({super.key});
+  const SouraDetails({super.key});
+
+  @override
+  State<SouraDetails> createState() => _SouraDetailsState();
+}
+
+class _SouraDetailsState extends State<SouraDetails> {
   List<String> verse = [];
 
   @override
@@ -21,31 +26,37 @@ class SouraDetails extends StatelessWidget {
       String content =
           await rootBundle.loadString('assets/files/${index + 1}.txt');
       List<String> lines = content.split('\n');
-      verse = lines;
-      print(verse);
+      setState(() {
+        verse = lines;
+      });
     }
 
     loadFile(args.index);
     return DefaultBackground(
         title: "${args.name}",
-        child: Column(
-          children: [
-            Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-                margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-                height: 200.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(25),
-                  color: Colors.white,
-                ),
-                child: ListView.builder(
-                    itemCount: verse.length,
-                    itemBuilder: (context, index) {
-                      return Text(verse[index]);
-                    }))
-          ],
-        ));
+        child: verse.isEmpty
+            ? CircularProgressIndicator()
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 20.h),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 20.h),
+                      height: 200.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(25),
+                        color: Colors.white.withOpacity(0.2),
+                      ),
+                      child: ListView.builder(
+                          itemCount: verse.length,
+                          itemBuilder: (context, index) {
+                            return Text(verse[index] , style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center,);
+                          }))
+                ],
+              ));
   }
 }
