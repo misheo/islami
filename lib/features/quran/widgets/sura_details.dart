@@ -44,7 +44,7 @@ class _SouraDetailsState extends State<SouraDetails> {
                           horizontal: 20.w, vertical: 20.h),
                       margin: EdgeInsets.symmetric(
                           horizontal: 20.w, vertical: 20.h),
-                      height: 200.h,
+                      height: 500.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
