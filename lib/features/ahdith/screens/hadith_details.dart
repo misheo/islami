@@ -30,7 +30,7 @@ class _HadithDetailsState extends State<HadithDetails> {
             borderRadius: BorderRadius.circular(25),
             color: Colors.white.withOpacity(0.2),
           ),
-          child: Text(args.split("\n")[1])),
+          child: Center(child: SingleChildScrollView(child: Text(args.split("\n")[1] , textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyLarge)) ,)),
     );
   }
 }

@@ -9,5 +9,8 @@
     "ahdith" : "Ahdith"  , 
     "sura_name" : "Sura Name" , 
     "count_of_tasbih" : "Count of Tasbih" , 
-    "language" : "Language"
+    "language" : "Language", 
+    "theme" : "Theme" , 
+    "arabic" : "Arabic" ,
+    "english" : "English"
 }
