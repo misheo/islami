@@ -11,13 +11,14 @@ class AhdithScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset('assets/images/hadith_image.png') , 
+        Image.asset('assets/images/hadith_image.png'),
         const MyDivider(
-          thickness : 3,
+          thickness: 3,
         ),
-        Text(AppLocalizations.of(context)!.ahdith , style: Theme.of(context).textTheme.titleLarge),  
-         const MyDivider(
-          thickness : 3,
+        Text(AppLocalizations.of(context)!.ahdith,
+            style: Theme.of(context).textTheme.titleLarge),
+        const MyDivider(
+          thickness: 3,
         ),
         // ListView.builder(itemBuilder: (context, index) => ,)
       ],

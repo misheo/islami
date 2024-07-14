@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DefaultBackground extends StatelessWidget {
-  const DefaultBackground({super.key, required this.child});
+  const DefaultBackground({super.key, required this.child, this.title});
   final Widget child;
+  final String ? title ; 
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class DefaultBackground extends StatelessWidget {
       ),
       Scaffold(
           appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.app_title),
+            title: Text(title ?? AppLocalizations.of(context)!.app_title),
           ),
           body: child)
     ]);

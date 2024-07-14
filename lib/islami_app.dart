@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/core/theme/my_theme.dart';
 import 'package:islami/features/home/home.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/features/quran/widgets/sura_details.dart';
 
 class IslamiApp extends StatelessWidget {
   const IslamiApp({super.key});
@@ -24,6 +25,8 @@ class IslamiApp extends StatelessWidget {
         supportedLocales: AppLocalizations.supportedLocales,
         routes: {
           '/': (context) => const HomeScreen(),
+          SouraDetails.routeName: (context) =>  SouraDetails(),
+
         },
       ),
     );

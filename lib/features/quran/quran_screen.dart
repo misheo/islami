@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:islami/core/theme/widgets/default_background.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/core/theme/widgets/my_divider.dart';
+import 'package:islami/features/quran/widgets/sura_details.dart';
 
 import '../../core/theme/my_colors.dart';
+import 'data/soura_details_args.dart';
 
 class QuranScreen extends StatelessWidget {
   const QuranScreen({super.key});
@@ -126,46 +129,36 @@ class QuranScreen extends StatelessWidget {
       "الفلق",
       "الناس"
     ];
-    return
-       Column(
-        children: [
-          Center(child: Image.asset('assets/images/quran_logo.png')),
-          const Divider(color: MyColors.primaryLightColor, thickness: 3),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(AppLocalizations.of(context)!.sura_name , style: Theme.of(context).textTheme.titleLarge),
-              Text(AppLocalizations.of(context)!.number_of_verses , style: Theme.of(context).textTheme.titleLarge),
-            ],
+    return Column(
+      children: [
+        Center(child: Image.asset('assets/images/quran_logo.png')),
+        const Divider(color: MyColors.primaryLightColor, thickness: 3),
+        Text(AppLocalizations.of(context)!.sura_name,
+            style: Theme.of(context).textTheme.titleLarge),
+        const Divider(color: MyColors.primaryLightColor, thickness: 3),
+        Expanded(
+          child: ListView.separated(
+            separatorBuilder: (context, index) {
+              return const MyDivider(thickness: 1);
+            },
+            itemCount: suraNames.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, SouraDetails.routeName, arguments: SouraDetailsArgs(index: index , name: suraNames[index]));
+                } , 
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(suraNames[index],
+                        style: Theme.of(context).textTheme.bodyLarge),
+                  ],
+                ),
+              );
+            },
           ),
-          const Divider(color: MyColors.primaryLightColor, thickness: 3),
-          Expanded(
-            child: ListView.separated(
-              separatorBuilder: (context, index) {
-                return const Divider(
-                  color: MyColors.primaryLightColor,
-                  thickness: 3,
-                );
-              },
-              itemCount: suraNames.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    
-                    children: [
-                      Text(suraNames[index],
-                          style: Theme.of(context).textTheme.bodyLarge),
-                      Text('$index'),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      );
-    
+        ),
+      ],
+    );
   }
 }
