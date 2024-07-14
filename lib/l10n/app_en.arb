@@ -12,5 +12,7 @@
     "language" : "Language", 
     "theme" : "Theme" , 
     "arabic" : "Arabic" ,
-    "english" : "English"
+    "english" : "English" , 
+    "dark" : "Dark" , 
+    "light" : "Light"
 }
