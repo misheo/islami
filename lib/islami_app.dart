@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/core/theme/my_theme.dart';
 import 'package:islami/features/home/home.dart';
@@ -25,14 +24,17 @@ class IslamiApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme:  MyTheme.lightTheme,
+        darkTheme:  MyTheme.darkTheme,
+        themeMode: settingsProvider.themeMode,
+        
         title: 'Material App',
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         locale: Locale(settingsProvider.language),
         routes: {
           '/': (context) => const HomeScreen(),
-          SouraDetails.routeName: (context) =>  SouraDetails(),
-          HadithDetails.routeName: (context) =>  HadithDetails(),
+          SouraDetails.routeName: (context) =>  const SouraDetails(),
+          HadithDetails.routeName: (context) =>  const HadithDetails(),
       
         },
       ),

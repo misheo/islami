@@ -31,5 +31,29 @@ class MyTheme {
 
     )
   );
-  
+    static ThemeData darkTheme = ThemeData(
+    canvasColor: MyColors.primaryDarkColor,
+    brightness: Brightness.dark,
+    primaryColor: MyColors.primaryDarkColor,
+    scaffoldBackgroundColor: Colors.transparent,
+    appBarTheme: const AppBarTheme(
+      color: Colors.transparent,
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: MyColors.goldDarkColor,
+        fontSize: 25,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    iconTheme: const IconThemeData(
+      color: MyColors.goldDarkColor,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: MyColors.primaryDarkColor,
+      selectedItemColor: MyColors.goldDarkColor,
+      unselectedItemColor: MyColors.blackDarkColor,
+      elevation: 20,
+    ),
+  );
 }
