@@ -13,16 +13,60 @@ class SebhaScreen extends StatefulWidget {
   State<SebhaScreen> createState() => _SebhaScreenState();
 }
 
-class _SebhaScreenState extends State<SebhaScreen> {
+class _SebhaScreenState extends State<SebhaScreen> with SingleTickerProviderStateMixin {
   int count = 0;
+  int subcount = 0;
+  late AnimationController _controller;
+  List<String > azkare = ['الحمدلله','الحمدلله','الحمدلله','الحمدلله','الحمدلله', 'سبحان الله', 'سبحان الله','سبحان الله','سبحان الله','سبحان الله'];
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _rotateImage() {
+    _controller.forward(from: 0.0);
+    setState(() {
+      if(subcount < azkare.length - 1){
+        subcount++;
+      }else{
+        subcount = 0;
+      }
+      count++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingsProvider>(context);
     return Column(
       children: [
-        provider.isLightMode
-            ? Image.asset('assets/images/sebha.png')
-            : Image.asset('assets/images/dark_sibha.png'),
+        GestureDetector(
+          onTap: _rotateImage,
+          child: AnimatedBuilder(
+            animation: _controller,
+            child: Container(
+              child: provider.isLightMode
+                  ? Image.asset('assets/images/sebha.png')
+                  : Image.asset('assets/images/dark_sibha.png'),
+            ),
+            builder: (context, child) {
+              return Transform.rotate(
+                angle: _controller.value * 2.0 * 3.141592653589793,
+                child: child,
+              );
+            },
+          ),
+        ),
         SizedBox(
           height: 57.h,
         ),
@@ -69,7 +113,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
               ),
               child: Center(
                   child: Text(
-                '$count',
+                '${azkare[subcount]}',
               )),
             ),
           ],
